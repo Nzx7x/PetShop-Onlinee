@@ -2,6 +2,10 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Star } from "lucide-react";
+import racaoCaesImg from "@/assets/products/racao-caes.jpg";
+import areiaImg from "@/assets/products/areia.jpg";
+import brinquedosImg from "@/assets/products/brinquedos.jpg";
+import higieneImg from "@/assets/products/higiene.jpg";
 
 const products = [
   {
@@ -12,7 +16,7 @@ const products = [
     rating: 4.8,
     reviews: 234,
     badge: "Mais Vendido",
-    image: "🐕"
+    image: racaoCaesImg
   },
   {
     id: 2,
@@ -22,7 +26,7 @@ const products = [
     rating: 4.9,
     reviews: 412,
     badge: "Promoção",
-    image: "🐱"
+    image: areiaImg
   },
   {
     id: 3,
@@ -32,7 +36,7 @@ const products = [
     rating: 4.7,
     reviews: 156,
     badge: "Novo",
-    image: "🎾"
+    image: brinquedosImg
   },
   {
     id: 4,
@@ -42,7 +46,7 @@ const products = [
     rating: 5.0,
     reviews: 89,
     badge: "Destaque",
-    image: "🛁"
+    image: higieneImg
   }
 ];
 
@@ -59,8 +63,12 @@ export const FeaturedProducts = () => {
           {products.map((product) => (
             <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <CardContent className="p-0">
-                <div className="relative bg-gradient-to-br from-muted to-muted/50 h-56 flex items-center justify-center text-8xl">
-                  {product.image}
+                <div className="relative bg-gradient-to-br from-muted to-muted/50 h-56 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
                   {product.badge && (
                     <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
                       {product.badge}
