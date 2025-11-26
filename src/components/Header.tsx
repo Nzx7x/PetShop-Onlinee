@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ShoppingCart, User, Search, Menu } from "lucide-react";
+import { Search, Menu } from "lucide-react";
+import { Cart } from "./Cart";
+import { Login } from "./Login";
 
 export const Header = () => {
   return (
@@ -28,15 +30,8 @@ export const Header = () => {
             <Button variant="ghost" size="icon" className="md:hidden">
               <Search className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon">
-              <User className="w-5 h-5" />
-            </Button>
-            <Button variant="default" size="icon" className="relative bg-primary hover:bg-primary/90">
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">
-                3
-              </span>
-            </Button>
+            <Login />
+            <Cart />
           </div>
         </div>
         
