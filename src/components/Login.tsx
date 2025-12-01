@@ -4,28 +4,26 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { User } from "lucide-react";
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
-  const { toast } = useToast();
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    toast({
-      title: isLogin ? "Login realizado!" : "Cadastro realizado!",
-      description: `Bem-vindo(a) ${email}! 🐾`,
+    toast.success(isLogin ? "Login realizado com sucesso!" : "Cadastro realizado com sucesso!", {
+      description: `Bem-vindo, ${email}!`,
     });
-    
     setEmail("");
     setPassword("");
+    setOpen(false);
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" size="icon">
           <User className="w-5 h-5" />

@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Search, Menu } from "lucide-react";
 import { Cart } from "./Cart";
 import { Login } from "./Login";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -13,10 +14,32 @@ export const Header = () => {
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="w-5 h-5" />
             </Button>
-            <h1 className="text-xl md:text-2xl font-bold text-primary">🐾 PetShop</h1>
+            <Link to="/">
+              <h1 className="text-xl md:text-2xl font-bold text-primary cursor-pointer hover:opacity-80 transition-opacity">
+                🐾 PetShop
+              </h1>
+            </Link>
           </div>
+
+          <nav className="hidden md:flex items-center gap-6 flex-1">
+            <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
+              Início
+            </Link>
+            <Link to="/produtos" className="text-sm font-medium hover:text-primary transition-colors">
+              Produtos
+            </Link>
+            <Link to="/servicos" className="text-sm font-medium hover:text-primary transition-colors">
+              Serviços
+            </Link>
+            <Link to="/blog" className="text-sm font-medium hover:text-primary transition-colors">
+              Blog
+            </Link>
+            <Link to="/contato" className="text-sm font-medium hover:text-primary transition-colors">
+              Contato
+            </Link>
+          </nav>
           
-          <div className="hidden md:flex flex-1 max-w-lg mx-4">
+          <div className="hidden md:flex flex-1 max-w-lg mx-4 justify-end">
             <div className="relative w-full">
               <Input 
                 placeholder="Buscar produtos, rações, brinquedos..." 

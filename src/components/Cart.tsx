@@ -1,65 +1,21 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
-import { useState } from "react";
-
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+import { useCart } from "@/contexts/CartContext";
 
 export const Cart = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: 1,
-      name: "Ração Premium Cães Adultos",
-      price: 159.90,
-      quantity: 2,
-      image: "/racao-caes.jpg"
-    },
-    {
-      id: 2,
-      name: "Brinquedo Interativo",
-      price: 45.90,
-      quantity: 1,
-      image: "/brinquedos.jpg"
-    },
-    {
-      id: 3,
-      name: "Coleira Personalizada",
-      price: 89.90,
-      quantity: 1,
-      image: "/coleiras.jpg"
-    }
-  ]);
-
-  const updateQuantity = (id: number, delta: number) => {
-    setCartItems(items =>
-      items.map(item =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-          : item
-      )
-    );
-  };
-
-  const removeItem = (id: number) => {
-    setCartItems(items => items.filter(item => item.id !== id));
-  };
-
-  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const { cartItems, updateQuantity, removeItem, total } = useCart();
 
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="default" size="icon" className="relative bg-primary hover:bg-primary/90">
           <ShoppingCart className="w-5 h-5" />
-          <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">
-            {cartItems.length}
-          </span>
+          {cartItems.length > 0 && (
+            <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">
+              {cartItems.length}
+            </span>
+          )}
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-lg">

@@ -6,6 +6,7 @@ import racaoCaesImg from "@/assets/products/racao-caes.jpg";
 import areiaImg from "@/assets/products/areia.jpg";
 import brinquedosImg from "@/assets/products/brinquedos.jpg";
 import higieneImg from "@/assets/products/higiene.jpg";
+import { useCart } from "@/contexts/CartContext";
 
 const products = [
   {
@@ -51,6 +52,17 @@ const products = [
 ];
 
 export const FeaturedProducts = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (product: typeof products[0]) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    });
+  };
+
   return (
     <section className="py-16 px-4">
       <div className="container">
@@ -101,7 +113,10 @@ export const FeaturedProducts = () => {
               </CardContent>
               
               <CardFooter className="p-4 pt-0">
-                <Button className="w-full bg-primary hover:bg-primary/90 group-hover:scale-105 transition-transform">
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90 group-hover:scale-105 transition-transform"
+                  onClick={() => handleAddToCart(product)}
+                >
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   Adicionar ao Carrinho
                 </Button>
