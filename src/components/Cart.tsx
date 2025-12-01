@@ -2,9 +2,11 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
   const { cartItems, updateQuantity, removeItem, total } = useCart();
+  const navigate = useNavigate();
 
   return (
     <Sheet>
@@ -82,7 +84,11 @@ export const Cart = () => {
                 <span>Total:</span>
                 <span className="text-primary">R$ {total.toFixed(2)}</span>
               </div>
-              <Button className="w-full" size="lg">
+              <Button 
+                className="w-full" 
+                size="lg"
+                onClick={() => navigate("/checkout")}
+              >
                 Finalizar Compra
               </Button>
             </div>
