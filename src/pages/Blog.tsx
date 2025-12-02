@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Testimonials } from "@/components/Testimonials";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, ArrowRight } from "lucide-react";
@@ -115,6 +116,13 @@ const Blog = () => {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-16 px-4">
+          <div className="container">
+            <Testimonials />
           </div>
         </section>
 
