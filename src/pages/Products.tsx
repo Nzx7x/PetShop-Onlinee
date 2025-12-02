@@ -9,6 +9,15 @@ import { ShoppingCart, Star, SlidersHorizontal } from "lucide-react";
 import { products } from "@/data/products";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
+import racaoCaes from "@/assets/products/racao-caes.jpg";
+import racaoGatos from "@/assets/products/racao-gatos.jpg";
+import petiscos from "@/assets/products/petiscos.jpg";
+import areia from "@/assets/products/areia.jpg";
+import comedouros from "@/assets/products/comedouros.jpg";
+import coleiras from "@/assets/products/coleiras.jpg";
+import camas from "@/assets/products/camas.jpg";
+import brinquedos from "@/assets/products/brinquedos.jpg";
+import higiene from "@/assets/products/higiene.jpg";
 
 const Products = () => {
   const { addToCart } = useCart();
@@ -17,15 +26,15 @@ const Products = () => {
   const [sortBy, setSortBy] = useState("featured");
 
   const imageMap: Record<string, string> = {
-    "/racao-caes.jpg": "/src/assets/products/racao-caes.jpg",
-    "/racao-gatos.jpg": "/src/assets/products/racao-gatos.jpg",
-    "/petiscos.jpg": "/src/assets/products/petiscos.jpg",
-    "/areia.jpg": "/src/assets/products/areia.jpg",
-    "/comedouros.jpg": "/src/assets/products/comedouros.jpg",
-    "/coleiras.jpg": "/src/assets/products/coleiras.jpg",
-    "/camas.jpg": "/src/assets/products/camas.jpg",
-    "/brinquedos.jpg": "/src/assets/products/brinquedos.jpg",
-    "/higiene.jpg": "/src/assets/products/higiene.jpg",
+    "/racao-caes.jpg": racaoCaes,
+    "/racao-gatos.jpg": racaoGatos,
+    "/petiscos.jpg": petiscos,
+    "/areia.jpg": areia,
+    "/comedouros.jpg": comedouros,
+    "/coleiras.jpg": coleiras,
+    "/camas.jpg": camas,
+    "/brinquedos.jpg": brinquedos,
+    "/higiene.jpg": higiene,
   };
 
   const filteredProducts = products
