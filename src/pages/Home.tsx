@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { VideoSection } from "@/components/VideoSection";
 import { Categories } from "@/components/Categories";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { Features } from "@/components/Features";
@@ -7,7 +8,6 @@ import { Testimonials } from "@/components/Testimonials";
 import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Truck } from "lucide-react";
-
 const Home = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -26,6 +26,7 @@ const Home = () => {
 
       <main className="flex-1">
         <Hero />
+        <VideoSection />
         <Categories />
         <FeaturedProducts />
         <Features />
